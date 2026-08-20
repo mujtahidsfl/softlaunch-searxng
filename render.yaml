@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: softlaunch-searxng
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /
+    envVars:
+      - key: SEARXNG_BIND_ADDRESS
+        value: 0.0.0.0
+      - key: SEARXNG_PORT
+        value: 10000
+      - key: SEARXNG_LIMITER
+        value: "false"
+      - key: SEARXNG_SECRET
+        generateValue: true
+
